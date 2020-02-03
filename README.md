@@ -15,6 +15,6 @@ so after that you need to change codes to comment line;
 
 #time.sleep(3)
 
-thats All! you can order with just one click enjoy!
+thats All! you can order with just one click enjoy! and it is order button to confirm your order..
 
 
