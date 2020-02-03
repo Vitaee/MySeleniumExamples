@@ -1,6 +1,3 @@
-#gitname = "Vitaee"
-#gitpass = "can_aassff88"
-
 from selenium import webdriver
 
 from selenium.webdriver.common.keys import Keys
@@ -10,12 +7,26 @@ class Ceviri:
     def __init__ (self):
         self.browser = webdriver.Chrome()
     def transWord(self):
-        self.browser.get("https://translate.google.com/?hl=tr")
+        self.browser.get("https://www.google.com.tr")
         time.sleep(2)
-        wordTrans = self.browser.find_element_by_xpath("//*[@id='source']")
-        wordTrans.send_keys("Moreover, as time goes by, businesses have recognized the importance of the acquisition of new data than creation from at least existing information.")
+        wordTrans = self.browser.find_element_by_xpath("//*[@id='tsf']/div[2]/div[1]/div[1]/div/div[2]/input")
+        wordTrans.send_keys("google translate")
+        srchBtn = self.browser.find_element_by_xpath("//*[@id='tsf']/div[2]/div[1]/div[3]/center/input[1]")
+        srchBtn.click()
+
         #wordTrans.get_attribute("Helloo")
         time.sleep(2)
+        wrdTrns = self.browser.find_element_by_xpath("//*[@id='tw-source-text-ta']")
+        wrdTrns.send_keys("Hello world")
+
+        Trnsword = self.browser.find_element_by_xpath("//*[@id='tw-tl']")
+        Trnsword.click()
+
+        detectLng = self.browser.find_element_by_xpath("//*[@id='tl_list-search-box']")
+        detectLng.send_keys("Turkish")
+        #Lngdetect = self.browser.find_element_by_xpath("//*[@id='tw-container']/g-expandable-container/div/div/div[6]/g-expandable-container/div/g-expandable-content/span/div/div[2]/div[2]/div[96]")
+        detectLng.send_keys(Keys.ENTER)
+
 
 trnsword = Ceviri()
 trnsword.transWord()
