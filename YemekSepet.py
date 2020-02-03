@@ -2,8 +2,8 @@ from selenium import webdriver
 from selenium.webdriver.common.keys import Keys
 import time
 
-usrnm = "canilguu@gmail.com"
-pswrd = "aassff88"
+usrnm = ""
+pswrd = ""
 class Yemek:
     def __init__(self, usrnm, pswrd):
         self.browser = webdriver.Chrome()
