@@ -8,6 +8,7 @@ srchBtn.send_keys("pizza")
 so after that you need to change codes to comment line;
 
 #foodFrst = self.browser.find_element_by_xpath("//*[@id='cboxLoadedContent']/div/div[2]/div/div[2]/button")
+
 #foodFrst.click()
 #time.sleep(3)
 
