@@ -26,7 +26,7 @@ class Yemek:
         time.sleep(3)
 
         ctySlct = self.browser.find_element_by_xpath("/html/body/header/div/div/div/div[2]/span/span[1]/span/span[2]")
-        ctySlct.click()  #buraya kadar sıkıntı yok
+        ctySlct.click() 
 
         Slcttown = self.browser.find_element_by_xpath("//*[@id='ys-areaSelector-droparea']/span/span/span[1]/input")
         Slcttown.send_keys(Keys.ENTER)
@@ -46,7 +46,7 @@ class Yemek:
         foodFrst.click()
         time.sleep(3)
 
-        #sıfır hata..
+        
         confrmOrder = self.browser.find_element_by_xpath("//*[@id='basket-container']/div[2]/div/div[5]/button")
         confrmOrder.click()
         time.sleep(3)
