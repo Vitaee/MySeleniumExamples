@@ -14,10 +14,11 @@ class Ceviri:
         srchBtn = self.browser.find_element_by_xpath("//*[@id='tsf']/div[2]/div[1]/div[3]/center/input[1]")
         srchBtn.click()
 
-        #wordTrans.get_attribute("Helloo")
+        
+        a = input("Lütfen yabancı kelimenizi giriniz:\n ")
         time.sleep(2)
         wrdTrns = self.browser.find_element_by_xpath("//*[@id='tw-source-text-ta']")
-        wrdTrns.send_keys("Hello world")
+        wrdTrns.send_keys(a)
 
         Trnsword = self.browser.find_element_by_xpath("//*[@id='tw-tl']")
         Trnsword.click()
