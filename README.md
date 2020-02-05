@@ -13,7 +13,7 @@ so after that you need to change codes to comment line;
 
 #foodFrst.click()
 
-#time.sleep(3)
+
 
 after that ı choose payment way cash.. so if you want to pay with credit card you need to change
 
