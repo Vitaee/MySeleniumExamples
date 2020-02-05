@@ -1,14 +1,13 @@
 from selenium import webdriver
 
 from selenium.webdriver.common.keys import Keys
-import time
+
 
 class Ceviri:
     def __init__ (self):
         self.browser = webdriver.Chrome()
     def transWord(self):
         self.browser.get("https://www.google.com.tr")
-        time.sleep(2)
         wordTrans = self.browser.find_element_by_xpath("//*[@id='tsf']/div[2]/div[1]/div[1]/div/div[2]/input")
         wordTrans.send_keys("google translate")
         srchBtn = self.browser.find_element_by_xpath("//*[@id='tsf']/div[2]/div[1]/div[3]/center/input[1]")
@@ -16,7 +15,6 @@ class Ceviri:
 
         
         a = input("Lütfen yabancı kelimenizi giriniz:\n ")
-        time.sleep(2)
         wrdTrns = self.browser.find_element_by_xpath("//*[@id='tw-source-text-ta']")
         wrdTrns.send_keys(a)
 
