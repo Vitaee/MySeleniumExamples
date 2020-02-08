@@ -2,29 +2,49 @@ from selenium import webdriver
 
 from selenium.webdriver.common.keys import Keys
 
-
+gl_cvr = input("Lütfen yabancı kelimeyi giriniz: ")
 class Ceviri:
-    def __init__ (self):
-        self.browser = webdriver.Chrome()
-    def transWord(self):
-        self.browser.get("https://www.google.com.tr")
-        wordTrans = self.browser.find_element_by_xpath("//*[@id='tsf']/div[2]/div[1]/div[1]/div/div[2]/input")
-        wordTrans.send_keys("google translate")
-        srchBtn = self.browser.find_element_by_xpath("//*[@id='tsf']/div[2]/div[1]/div[3]/center/input[1]")
-        srchBtn.click()
+        def __init__ (self):
+            self.browser = webdriver.Chrome()
+        def transWord(self):
+            self.browser.get("https://www.google.com.tr")
+            self.browser.maximize_window()
 
-        
-        a = input("Lütfen yabancı kelimenizi giriniz:\n ")
-        wrdTrns = self.browser.find_element_by_xpath("//*[@id='tw-source-text-ta']")
-        wrdTrns.send_keys(a)
+            try:
+                wordTrans = WebDriverWait(self.browser,10).until(EC.visibility_of_element_located((By.XPATH, "//*[@id='tsf']/div[2]/div[1]/div[1]/div/div[2]/input")));
+                wordTrans.send_keys("google translate")
 
-        Trnsword = self.browser.find_element_by_xpath("//*[@id='tw-tl']")
-        Trnsword.click()
+            except:
+                print("Hata oldu!")
 
-        detectLng = self.browser.find_element_by_xpath("//*[@id='tl_list-search-box']")
-        detectLng.send_keys("Turkish")
-        #Lngdetect = self.browser.find_element_by_xpath("//*[@id='tw-container']/g-expandable-container/div/div/div[6]/g-expandable-container/div/g-expandable-content/span/div/div[2]/div[2]/div[96]")
-        detectLng.send_keys(Keys.ENTER)
+            try:
+                srchBtn = WebDriverWait(self.browser,10).until(EC.visibility_of_element_located((By.XPATH, "//*[@id='tsf']/div[2]/div[1]/div[3]/center/input[1]")));
+                srchBtn.click()
+
+            except:
+                prin("İnternet bağlantınızı kontrol ediniz!")
+
+            try:
+                wrdTrns = WebDriverWait(self.browser,10).until(EC.visibility_of_element_located((By.XPATH,"//*[@id='tw-source-text-ta']")));
+                wrdTrns.send_keys(gl_cvr)  
+
+            except:
+                print("Hata!")
+
+            try:
+                Trnsword = WebDriverWait(self.browser,10).until(EC.visibility_of_element_located((By.XPATH, "//*[@id='tw-tl']")));
+                Trnsword.click()
+
+            except:
+                print("Bir hata meydana geldi!")
+
+            try:
+                detectLng = WebDriverWait(self.browser,10).until(EC.visibility_of_element_located((By.XPATH, "//*[@id='tl_list-search-box']")));
+                detectLng.send_keys("Turkish")
+                detectLng.send_keys(Keys.ENTER)
+
+            except:
+                prin("Hata!")
 
 
 trnsword = Ceviri()
