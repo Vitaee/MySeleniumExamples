@@ -41,11 +41,11 @@ class Yemek:
             
         except:
             print("Hata")
-        time.sleep(2)
+        time.sleep(2) #bu satırı kaldırınca hata alıyorum..
 
         
         try:
-            ctySlct = self.browser.find_element_by_xpath("/html/body/header/div/div/div/div[2]/span/span[1]/span/span[2]")
+            ctySlct =WebDriverWait(self.browser,10).until(EC.visibility_of_element_located((By.XPATH, "/html/body/header/div/div/div/div[2]/span/span[1]/span/span[2]")));
             ctySlct.click()
         except:
             print("Şehir seçme hatası")
