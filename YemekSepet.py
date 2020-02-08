@@ -12,8 +12,8 @@ import time
 
 
 
-usrnm = "canilguu@gmail.com"
-pswrd = "aassff88"
+usrnm = ""
+pswrd = ""
 class Yemek:
 
     def __init__(self, usrnm, pswrd):
