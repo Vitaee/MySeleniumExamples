@@ -8,10 +8,6 @@ from selenium.webdriver.support import expected_conditions as EC
 import time
 
 
-
-
-
-
 usrnm = ""
 pswrd = ""
 class Yemek:
@@ -36,7 +32,6 @@ class Yemek:
 
             lgnBtn = WebDriverWait(self.browser,10).until(EC.visibility_of_element_located((By.XPATH, "//*[@id='ys-fastlogin-button']")));
             lgnBtn.click()
-
             
             
         except:
@@ -50,7 +45,6 @@ class Yemek:
         except:
             print("Şehir seçme hatası")
 
-      
 
         try: 
             Slcttown = self.browser.find_element_by_xpath("//*[@id='ys-areaSelector-droparea']/span/span/span[1]/input")
@@ -78,13 +72,11 @@ class Yemek:
         except:
             print("Çıkan ilk yemeği seçme hatası!")
 
-       
-
-        
+      
 
             #foodFrst = self.browser.find_element_by_xpath("//*[@id='cboxLoadedContent']/div/div[2]/div/div[2]/button")
             #foodFrst.click()
-            #time.sleep(3)  #eğer yemek seçildiğinde bir menü ekranı çıkarsa bu kısmı aktiif etmeliyiz
+            #eğer yemek seçildiğinde bir menü ekranı çıkarsa bu kısmı aktiif etmeliyiz
 
         try:
             confrmOrder = WebDriverWait(self.browser,10).until(EC.visibility_of_element_located((By.XPATH, "//*[@id='basket-container']/div[2]/div/div[5]/button")));
@@ -94,7 +86,6 @@ class Yemek:
             print("Sepeti onaylama hatası!")
 
         
-
         try:
             payMent = WebDriverWait(self.browser,10).until(EC.visibility_of_element_located((By.XPATH, "/html/body/div[1]/div/div/div[8]/div/div/div/div/div[2]/div/div[2]/label/input")));
             payMent.click()
@@ -103,8 +94,6 @@ class Yemek:
         except:
             print("Ödeme yöntemi seçilemedi!")
 
-
-        
 
 ymksprs = Yemek(usrnm,pswrd)
 ymksprs.yemekLogin()
