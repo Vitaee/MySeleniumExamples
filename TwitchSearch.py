@@ -1,7 +1,7 @@
 from selenium import webdriver
 
 
-tw_ans = input("Enter a name: ").title()
+tw_ans = input("Enter a name of stramer: ").title()
 
 class Twitch:
     def __init__(self):
