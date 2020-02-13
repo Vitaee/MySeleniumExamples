@@ -1,4 +1,4 @@
-# My Classes Examples
+# My Selenium Examples
 with selenuim module  I made basic examples.
 
 for YemekSepet.py;
