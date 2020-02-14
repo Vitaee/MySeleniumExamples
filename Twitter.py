@@ -17,7 +17,7 @@ class Twitter:
         self.password2 = password2
 
     def twittSing(self):
-        self.browser.get("https://twitter.com/login?lang=tr")  #google chromedaki ile aynı olmalı!
+        self.browser.get("https://twitter.com/login?lang=tr")  
         self.browser.maximize_window()
             
         try:
@@ -44,7 +44,7 @@ class Twitter:
         except:
             print("Arama çubuğu kullanılamadı!")
 
-        try:
+        try: #ilk gönderiyi beğenmesini sağlıyoruz..
             likeBut = WebDriverWait(self.browser,10).until(EC.element_to_be_clickable((By.XPATH, "//*[@id='react-root']/div/div/div/main/div/div/div/div[1]/div/div[2]/div/div/section/div/div/div/div[8]/div/article/div/div[2]/div[2]/div[4]/div[3]/div/div/div[2]")));
             likeBut.click()
         except:
