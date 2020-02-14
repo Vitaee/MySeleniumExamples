@@ -7,8 +7,8 @@ from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 
 
-usernm = "canilguu@gmail.com"
-password2 = "cansoft88"
+usernm = ""
+password2 = ""
 
 class Twitter:
     def __init__(self, usernm, password2):
