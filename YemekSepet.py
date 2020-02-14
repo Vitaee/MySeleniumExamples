@@ -70,18 +70,17 @@ class Yemek:
         except:
             print("Çıkan ilk yemeği seçme hatası!")
 
-      
-
-            #foodFrst = self.browser.find_element_by_xpath("//*[@id='cboxLoadedContent']/div/div[2]/div/div[2]/button")
-            #foodFrst.click()
-            #eğer yemek seçildiğinde bir menü ekranı çıkarsa bu kısmı aktiif etmeliyiz
-
         try:
             confrmOrder = WebDriverWait(self.browser,10).until(EC.visibility_of_element_located((By.XPATH, "//*[@id='basket-container']/div[2]/div/div[5]/button")));
             confrmOrder.click()
 
         except:
-            print("Sepeti onaylama hatası!")
+            print("Yemek menüsü çıktı lütfen bekleiyiniz..")
+            foodFrst = self.browser.find_element_by_xpath("//*[@id='cboxLoadedContent']/div/div[2]/div/div[2]/button")
+            foodFrst.click()
+            confrmOrder = WebDriverWait(self.browser,10).until(EC.visibility_of_element_located((By.XPATH, "//*[@id='basket-container']/div[2]/div/div[5]/button")));
+            confrmOrder.click()
+            
 
         
         try:
