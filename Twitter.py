@@ -17,7 +17,7 @@ class Twitter:
         self.password2 = password2
 
     def twittSing(self):
-        self.browser.get("https://twitter.com/login?lang=tr")  
+        self.browser.get("https://twitter.com/login")  
         self.browser.maximize_window()
             
         try:
@@ -38,18 +38,40 @@ class Twitter:
 
         try:
             searhBtn = WebDriverWait(self.browser,10).until(EC.visibility_of_element_located((By.XPATH, "//*[@id='react-root']/div/div/div/main/div/div/div/div[2]/div/div[2]/div/div/div/div[1]/div/div/div/form/div[1]/div/div/div[2]/input")));
-            searhBtn.send_keys("python")
+            searhBtn.send_keys("haber gündem")
             searhBtn.send_keys(Keys.ENTER)  
                 
         except:
             print("Arama çubuğu kullanılamadı!")
 
-        try: #ilk gönderiyi beğenmesini sağlıyoruz..
-            likeBut = WebDriverWait(self.browser,10).until(EC.element_to_be_clickable((By.XPATH, "//*[@id='react-root']/div/div/div/main/div/div/div/div[1]/div/div[2]/div/div/section/div/div/div/div[8]/div/article/div/div[2]/div[2]/div[4]/div[3]/div/div/div[2]")));
-            likeBut.click()
+        
+        
+        try:
+                                                                                                
+            lastNews = WebDriverWait(self.browser,10).until(EC.element_to_be_clickable((By.XPATH, "//*[@id='react-root']/div/div/div/main/div/div/div/div[1]/div/div[1]/div[2]/nav/div[2]/div[2]/a/div/span")));
+            lastNews.click()
+        except:
+            print("En son sekmesine tıklanılmadı!")
+        
+        
+        try:
+            likeButton = WebDriverWait(self.browser,10).until(EC.visibility_of_element_located((By.XPATH,'//*[@id="react-root"]/div/div/div/main/div/div/div/div[1]/div/div[2]/div/div/section/div/div/div/div[1]/div/article/div/div[2]/div[2]/div[4]/div[3]/div')));
+            likeButton.click()
+            
+
         except:
             print("Gönderi beğenilemedi!")
 
+        try:
+            #scrollDown = WebDriverWait(self.browser,10).until(EC.visibility_of_element_located((By.XPATH, '/html')));
+            #scrollDown.send_keys(Keys.PAGE_DOWN);
+            self.browser.execute_script("window.scrollTo(0, 500)")
+            #sayfamıızın vertikal olarak aşağıya doğru yönelmesini sağlıyoruz 
+            #0 = x , y = 500 , bu değer kadar sayfayı aşağıya kadar sürüklüyor..
+
+
+        except:
+            print("Hata")
             
 twitterr = Twitter(usernm,password2)
 twitterr.twittSing()
