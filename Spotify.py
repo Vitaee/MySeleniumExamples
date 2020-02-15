@@ -3,6 +3,8 @@ from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
+import time
+import pyautogui #pip install pyautogui
 
 username = ""
 password = ""
@@ -58,14 +60,20 @@ class Spotify:
 
 		except:
 			print("Hata!")
+			
+		time.sleep(6) #web çalar'a tıklanıldıktan sonra biraz sleep kullanmak iyi olur çünkü sayfa daha beyaz ekraniken
+		#play butonuna tıklamaya çalışır..(sayfa tamamen yüklenmeden tıklayabilir.)
 
-		#dilersek bir kere daha tıklanılmasını sağlayabiliriz..
+		x,y = 998, 1019 #play butonunun kordinatlarını aldık ve mouse ile tıklanılmasını sağladık
+		try:                                                                                        
+			#musicPlay = WebDriverWait(self.browser,15).until(EC.element_to_be_clickable((By.XPATH, "//*[@id='main']/div/div[4]/div[3]/footer/div/div[2]/div/div[1]/div[3]/")));
+			#musicPlay.click()
+			pyautogui.click(x,y)
+		except:
+			print("Hata!")
 
-		#try:
-		#	musicPlay.click()
 
-		#except:
-		#	print("Müzik başlatılamadı !")
+	
 
 
 sptfy = Spotify(username,password)
